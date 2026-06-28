@@ -1,4 +1,6 @@
+
 public class Campos {
+
     private int cod;
     private int npag;
     private String nome;
