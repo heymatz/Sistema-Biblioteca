@@ -5,96 +5,110 @@ public class App {
     public static void main(String args[]) {
 
         Scanner leia = new Scanner(System.in);
-        int resp, nobras = 0;
+        int resp, nobras;
         String paut, pnome, parea;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 3; i++) {
 
-            Campos c = new Campos();
             Campos.vet[i] = new Campos();
 
             System.out.println("Digite o código do livro");
             Campos.vet[i].setCod(leia.nextInt());
+            leia.nextLine(); // Limpa o buffer do teclado
 
             System.out.println("Digite o nome da obra");
-            Campos.vet[i].setNome(leia.next());
+            Campos.vet[i].setNome(leia.nextLine());
 
             System.out.println("Digite o nome do autor");
-            Campos.vet[i].setAut(leia.next());
+            Campos.vet[i].setAut(leia.nextLine());
 
             System.out.println("Digite a área");
-            Campos.vet[i].setArea(leia.next());
+            Campos.vet[i].setArea(leia.nextLine());
 
             System.out.println("Digite a editora");
-            Campos.vet[i].setEditora(leia.next());
+            Campos.vet[i].setEditora(leia.nextLine());
 
             System.out.println("Digite o número de paginas do livro");
             Campos.vet[i].setNpag(leia.nextInt());
+            leia.nextLine(); // limpa o buffer do teclado
 
             System.out.println("...................\n");
-            System.out.println("...RESULTADO... \n");
+            System.out.println("...ARMAZENADO COM SUCESSO... \n");
         }
-        for (int i = 0; i < 10; i++) {
-            Campos c = new Campos();
-            System.out.println("Código..." + Campos.vet[i].getCod());
-            System.out.println("nome..." + Campos.vet[i].getNome());
-            System.out.println("autor..." + Campos.vet[i].getAut());
-            System.out.println("area..." + Campos.vet[i].getArea());
-            System.out.println("editora..." + Campos.vet[i].getEditora());
-            System.out.println("numero de paginas..." + Campos.vet[i].getNpag());
+        do {
 
-            System.out.println("Escolha a sua opção \n 1- Incluir livro \n"
-                    + "2- mostrar a quantidade de obras de um determinado autor e quais são \n"
-                    + "3- pesquisar por nome da obra \n"
-                    + "4- pesquisar por area \n"
-                    + "5- sair");
-            resp = leia.nextInt();
+    System.out.println("\n===== MENU =====");
+    System.out.println("1 - Mostrar todos os livros");
+    System.out.println("2 - Pesquisar por autor");
+    System.out.println("3 - Pesquisar por nome");
+    System.out.println("4 - Pesquisar por área");
+    System.out.println("5 - Sair");
 
-            while (resp >= 1 && resp <= 4) {
+    resp = leia.nextInt();
 
-                if (resp == 1) {
-                    Campos.vet[i] = new Campos();
-                }
+    switch (resp) {
 
-                if (resp == 2) {
-                    System.out.println("Digite o nome que quer pesquisar");
-                    paut = leia.next();
-                    if (paut.equalsIgnoreCase(Campos.vet[i].getAut())) {
-                        System.out.println("As obras do autor são" + Campos.vet[i].getNome());
-                        nobras = (nobras + 1);
-                        System.out.println("O numero de obras é =" + nobras);
-                    }
-                }
+        case 1 -> {
+            for (int i = 0; i < 3; i++) {
+                System.out.println("----------------");
+                System.out.println("Código: " + Campos.vet[i].getCod());
+                System.out.println("Nome: " + Campos.vet[i].getNome());
+                System.out.println("Autor: " + Campos.vet[i].getAut());
+                System.out.println("Área: " + Campos.vet[i].getArea());
+                System.out.println("Editora: " + Campos.vet[i].getEditora());
+                System.out.println("Páginas: " + Campos.vet[i].getNpag());
+            }   }
 
-                if (resp == 3) {
-                    System.out.println("Digite o nome da obra a ser pesquisado");
-                    pnome = leia.next();
-                    if (pnome.equalsIgnoreCase(Campos.vet[i].getNome())) {
-                        System.out.println("Código..." + Campos.vet[i].getCod());
-                        System.out.println("autor..." + Campos.vet[i].getAut());
-                        System.out.println("area..." + Campos.vet[i].getArea());
-                        System.out.println("editora..." + Campos.vet[i].getEditora());
-                        System.out.println("numero de paginas..." + Campos.vet[i].getNpag());
-                    }
-                }
+        case 2 -> {
+            nobras = 0;
+            leia.nextLine(); // Limpa o buffer do teclado
+            
+            System.out.println("Digite o autor:");
+            paut = leia.nextLine();
 
-                if (resp == 4) {
-                    System.out.println("Digite a area a ser pesquisada");
-                    parea = leia.next();
-                    if (parea.equalsIgnoreCase(Campos.vet[i].getArea())) {
-                        System.out.println("Código..." + Campos.vet[i].getCod());
-                        System.out.println("nome..." + Campos.vet[i].getNome());
-                        System.out.println("autor..." + Campos.vet[i].getAut());
-                        System.out.println("editora..." + Campos.vet[i].getEditora());
-                        System.out.println("numero de paginas..." + Campos.vet[i].getNpag());
-                    }
+            for (int i = 0; i < 3; i++) {
+                if (Campos.vet[i].getAut().toLowerCase().contains(paut.toLowerCase())) {
+                    System.out.println(Campos.vet[i].getNome());
+                    nobras++;
                 }
             }
 
-            if (resp == 5)
-                System.out.println("O programa foi encerrado");
+            System.out.println("Quantidade de obras: " + nobras);
+                }
 
-        }
+        case 3 -> {
+            leia.nextLine(); // Limpa o buffer do teclado
+            System.out.println("Digite o nome da obra:");
+            pnome = leia.nextLine();
+            
+            for (int i = 0; i < 3; i++) {
+                if (Campos.vet[i].getNome().toLowerCase().contains(pnome.toLowerCase())) {
+                    System.out.println("Código: " + Campos.vet[i].getCod());
+                    System.out.println("Autor: " + Campos.vet[i].getAut());
+                    System.out.println("Editora: " + Campos.vet[i].getEditora());
+                    System.out.println("Páginas: " + Campos.vet[i].getNpag());
+                }
+            }   }
+
+        case 4 -> {
+            leia.nextLine(); // Limpa o buffer do teclado
+            System.out.println("Digite a área:");
+            parea = leia.nextLine();
+
+            for (int i = 0; i < 3; i++) {
+                if (Campos.vet[i].getArea().toLowerCase().contains(parea.toLowerCase())) {
+                    System.out.println("Nome: " + Campos.vet[i].getNome());
+                    System.out.println("Autor: " + Campos.vet[i].getAut());
+                }
+            }   }
+
+        case 5 -> System.out.println("Programa encerrado.");
+
+        default -> System.out.println("Opção inválida.");
+
     }
-
+    } 
+    while (resp != 5);
+    leia.close();
+    }
 }

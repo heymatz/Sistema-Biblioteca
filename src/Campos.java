@@ -6,7 +6,7 @@ public class Campos {
     private String area;
     private String editora;
 
-    public static Campos vet[] = new Campos[10];
+    public static Campos vet[] = new Campos[3];
 
     public int getCod() {
         return this.cod;
