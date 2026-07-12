@@ -1,18 +1,52 @@
-## Getting Started
+# Sistema Biblioteca
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Sistema desenvolvido em Java para gerenciamento de um acervo de livros por meio de um menu interativo no console. O projeto foi criado para praticar Programação Orientada a Objetos, coleções dinâmicas, validação de dados e implementação de funcionalidades de pesquisa.
 
-## Folder Structure
+## Tecnologias
 
-The workspace contains two folders by default, where:
+- Java
+- Programação Orientada a Objetos (POO)
+- Collections Framework (`ArrayList`)
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Funcionalidades
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Cadastro de livros
+- Listagem completa do acervo
+- Pesquisa por autor
+- Pesquisa por nome da obra
+- Pesquisa por gênero
+- Validação de códigos duplicados
+- Pesquisa ignorando acentos e diferenças entre letras maiúsculas e minúsculas
+- Validação de entrada de dados
+- Menu interativo via console
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Objetivos de Aprendizagem
 
-## Dependency Management
+Durante este projeto foram praticados conceitos como:
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- Classes e Objetos
+- Encapsulamento
+- Enumerações (`enum`)
+- Collections Framework (`ArrayList`)
+- Estruturas de decisão e repetição
+- Validação de dados
+- Tratamento de exceções
+- Manipulação de Strings
+- Organização de código
+
+## Estrutura do Projeto
+
+```
+src/
+├── BibliotecaApp.java
+├── Livro.java
+└── TipoPesquisa.java
+```
+
+## Status
+
+✅ Concluído
+
+---
+
+> 📚 Projeto desenvolvido para fins de estudo e evolução prática em Java.
